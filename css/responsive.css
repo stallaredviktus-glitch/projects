@@ -1,0 +1,322 @@
+﻿/* Мобильные устройства (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-brand {
+        text-align: center;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        background: var(--card);
+        border: 1px solid var(--border);
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .navbar .container {
+        padding: 12px 16px;
+    }
+
+    .nav-toggle {
+        position: fixed;
+        top: 12px;
+        right: 16px;
+        z-index: 90;
+    }
+
+    .navbar {
+        transition: transform 200ms ease, opacity 200ms ease;
+    }
+
+    body.nav-compact .navbar {
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    body.nav-compact .nav-brand {
+        display: none;
+    }
+
+    body.nav-compact .nav-menu {
+        display: none;
+    }
+
+    body.nav-compact .nav-menu.is-open {
+        display: flex;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-timeline {
+        gap: 16px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-badges {
+        justify-content: center;
+    }
+
+    .project-poster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-poster-visual {
+        min-height: 180px;
+    }
+
+    .project-meta {
+        flex-direction: column;
+    }
+
+    .meta-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .scroll-fab {
+        right: 16px;
+        bottom: 16px;
+        width: 36px;
+        height: 54px;
+    }
+
+    .skills-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 12px;
+        padding: 12px 8px 14px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .skills-grid::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .skills-grid::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+    }
+
+    .skill-card {
+        min-width: 240px;
+        scroll-snap-align: center;
+    }
+
+    .social-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Планшеты (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-stats > :nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    .project-poster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scroll-section {
+        height: auto;
+        min-height: auto;
+        align-items: flex-start;
+        padding: 64px 0;
+        overflow: visible;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        text-align: center;
+        justify-items: center;
+    }
+
+    .hero-actions,
+    .hero-badges {
+        justify-content: center;
+    }
+
+    .about-card,
+    .about-textcard {
+        text-align: center;
+    }
+
+    .project-release {
+        flex-wrap: wrap;
+    }
+}
+
+/* Очень маленькие экраны (max-width: 480px) */
+@media (max-width: 480px) {
+    section {
+        padding: 40px 10px;
+    }
+
+    .hero {
+        padding: 60px 10px;
+        min-height: 80vh;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-card {
+        margin-bottom: 1rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat h3 {
+        font-size: 2rem;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .social-link {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .avatar-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .about-name {
+        font-size: 1.4rem;
+    }
+
+    .projects-timeline {
+        gap: 12px;
+    }
+
+    .skills-grid {
+        gap: 12px;
+    }
+
+    .scroll-fab {
+        display: none;
+    }
+}
+
+/* Печать */
+@media print {
+    .navbar,
+    .footer,
+    .btn {
+        display: none;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
