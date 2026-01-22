@@ -1,0 +1,37 @@
+.toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+:global([data-theme="light"]) .toggle {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+:global([data-theme="light"]) .toggle:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.toggle:hover .icon {
+  transform: rotate(15deg);
+}

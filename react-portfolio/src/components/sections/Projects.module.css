@@ -1,0 +1,578 @@
+.projects {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.header {
+  text-align: center;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-left: 104px;
+}
+
+.lead {
+  color: var(--text-1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filter tabs */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding-left: 104px;
+}
+
+.filterBtn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--filter-color, var(--border));
+  background: color-mix(in srgb, var(--filter-color, var(--card)) 15%, var(--card));
+  color: var(--filter-color, var(--text-1));
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filterBtn:hover {
+  border-color: var(--filter-color, var(--accent));
+  background: color-mix(in srgb, var(--filter-color, var(--accent)) 25%, var(--card));
+  color: var(--filter-color, var(--text-0));
+}
+
+.filterBtn.active {
+  background: var(--filter-color, var(--accent));
+  border-color: var(--filter-color, var(--accent));
+  color: #fff;
+}
+
+/* Timeline layout */
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Year group */
+.yearGroup {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  position: relative;
+  min-width: 0;
+}
+
+.yearGroup::before {
+  content: '';
+  position: absolute;
+  left: 39px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  opacity: 0.3;
+}
+
+.yearGroup:last-child::before {
+  height: 50%;
+}
+
+.yearLabel {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.yearDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.5);
+  border: 2px solid var(--bg);
+}
+
+.yearText {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-0);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.05em;
+}
+
+/* Carousel */
+.carouselWrapper {
+  position: relative;
+  padding: 16px 0;
+  min-width: 0;
+}
+
+.carouselTrack {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  min-width: 0;
+}
+
+.carouselSlides {
+  display: flex;
+  min-width: 0;
+}
+
+.carouselSlides .card {
+  flex: 0 0 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+
+/* Card styles - bento grid */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent);
+}
+
+/* Card header with gradient */
+.cardHeader {
+  padding: 20px;
+  background: var(--card-grad);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardHeader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cardEmoji {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.cardMetric {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 8px 12px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.metricValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Card body */
+.cardBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.categoryBadge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--cat-color, var(--accent));
+  color: #fff;
+}
+
+.roleBadge {
+  color: var(--text-2);
+  font-size: 0.8rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-0);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardDescription {
+  color: var(--text-1);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Highlights */
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-1);
+}
+
+.highlight::before {
+  content: '✓';
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  justify-content: center;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tag-color, var(--text-1)) 15%, var(--card-strong));
+  border: 1px solid color-mix(in srgb, var(--tag-color, var(--border)) 40%, transparent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--tag-color, var(--text-1));
+  transition: all var(--transition);
+}
+
+.card:hover .tag {
+  border-color: var(--tag-color, var(--accent));
+  background: color-mix(in srgb, var(--tag-color, var(--accent)) 25%, var(--card-strong));
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.dot:hover {
+  background: var(--text-2);
+}
+
+.dotActive {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* Expanded state */
+.card.expanded {
+  grid-column: 1 / -1;
+}
+
+.card.expanded .cardHeader {
+  padding: 24px;
+}
+
+.card.expanded .cardEmoji {
+  font-size: 3rem;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .header {
+    padding-left: 52px;
+    padding-right: 0;
+  }
+
+  .filters {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 340px;
+    margin: 0 auto 32px;
+    padding-left: 52px;
+    padding-right: 0;
+  }
+
+  .filterBtn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .header {
+    padding-left: 33px;
+    padding-right: 0;
+  }
+
+  .yearGroup {
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+  }
+
+  .yearGroup::before {
+    left: 24px;
+  }
+
+  .yearText {
+    font-size: 0.95rem;
+  }
+
+  .yearLabel {
+    top: 80px;
+  }
+
+  .cardHeader {
+    padding: 16px;
+  }
+
+  .cardBody {
+    padding: 16px;
+  }
+
+  .cardEmoji {
+    font-size: 2rem;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+
+  .metricValue {
+    font-size: 1.2rem;
+  }
+
+  .filters {
+    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 320px;
+    margin: 0 auto 32px;
+    padding-left: 33px;
+    padding-right: 0;
+  }
+
+  .filterBtn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .dots {
+    gap: 6px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .header {
+    margin-bottom: 24px;
+    padding-left: 21px;
+    padding-right: 0;
+  }
+
+  .filters {
+    gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto 20px;
+    max-width: 280px;
+    padding-left: 21px;
+    padding-right: 0;
+  }
+
+  .filterBtn {
+    padding: 5px 8px;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  .yearGroup {
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+  }
+
+  .yearGroup::before {
+    left: 15px;
+  }
+
+  .yearDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .yearText {
+    font-size: 0.8rem;
+  }
+
+  .carouselWrapper {
+    padding: 12px 0;
+  }
+
+  .carouselTrack {
+    border-radius: 14px;
+  }
+
+  .cardHeader {
+    padding: 12px;
+  }
+
+  .cardBody {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .cardEmoji {
+    font-size: 1.6rem;
+  }
+
+  .cardMetric {
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
+
+  .metricValue {
+    font-size: 0.9rem;
+  }
+
+  .metricLabel {
+    font-size: 0.55rem;
+  }
+
+  .cardTop {
+    gap: 6px;
+  }
+
+  .categoryBadge {
+    padding: 3px 8px;
+    font-size: 0.65rem;
+  }
+
+  .roleBadge {
+    font-size: 0.7rem;
+  }
+
+  .cardTitle {
+    font-size: 0.95rem;
+  }
+
+  .cardDescription {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .highlights {
+    gap: 4px;
+  }
+
+  .highlight {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .tags {
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 10px;
+    justify-content: center;
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .dots {
+    gap: 5px;
+    margin-top: 8px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dotActive {
+    width: 16px;
+  }
+}

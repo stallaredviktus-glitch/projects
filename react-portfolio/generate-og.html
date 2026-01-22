@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>OG Image Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #1a1a2e;
+      padding: 20px;
+    }
+    .og-container {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #04060c 0%, #050a14 50%, #0a1122 100%);
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .orb1 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+      top: -100px;
+      left: -50px;
+      filter: blur(40px);
+    }
+    .orb2 {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.35) 0%, transparent 70%);
+      bottom: -80px;
+      right: -50px;
+      filter: blur(40px);
+    }
+    .orb3 {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(50px);
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 80px 100px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #7c3aed 0%, #22d3ee 100%);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+    }
+    .title-block h1 {
+      font-size: 64px;
+      font-weight: 800;
+      color: #f7f9fb;
+      line-height: 1.1;
+    }
+    .title-block p {
+      font-size: 28px;
+      font-weight: 600;
+      color: #22d3ee;
+      margin-top: 8px;
+    }
+    .line {
+      width: 200px;
+      height: 4px;
+      background: linear-gradient(90deg, #7c3aed 0%, #22d3ee 100%);
+      border-radius: 2px;
+      margin: 30px 0;
+      opacity: 0.8;
+    }
+    .tags {
+      font-size: 24px;
+      color: #cdd5e6;
+    }
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #7c3aed;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover { background: #6d28d9; }
+    .instructions {
+      margin-top: 20px;
+      color: #888;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="og-container" id="og">
+    <div class="orb1"></div>
+    <div class="orb2"></div>
+    <div class="orb3"></div>
+    <div class="content">
+      <div class="header">
+        <div class="logo">S</div>
+        <div class="title-block">
+          <h1>stallared</h1>
+          <p>ML Engineer & Full Stack Developer</p>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="tags">Backend / ML / Frontend</div>
+    </div>
+  </div>
+
+  <button onclick="download()">Download PNG</button>
+  <p class="instructions">Click the button to download og-image.png<br>Then move it to the public folder</p>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    function download() {
+      html2canvas(document.getElementById('og'), {
+        scale: 1,
+        width: 1200,
+        height: 630,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'og-image.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>

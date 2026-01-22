@@ -1,0 +1,234 @@
+.contact {
+  padding: 120px 0;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  color: var(--text-2);
+  font-size: 1.125rem;
+  margin-bottom: 60px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.socialGrid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Capsule badge style */
+.socialLink {
+  height: 38px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: var(--card-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-weight: 700;
+  color: var(--text-0);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              border-color 280ms ease,
+              box-shadow 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+}
+
+/* Noise texture */
+.socialLink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Color variants */
+.gmail {
+  background: linear-gradient(135deg, rgba(234, 67, 53, 0.18), rgba(234, 67, 53, 0.08));
+  border-color: rgba(234, 67, 53, 0.3);
+  color: #ea4335;
+}
+
+.gmail:hover {
+  border-color: #ea4335;
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.telegram {
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.18), rgba(0, 136, 204, 0.08));
+  border-color: rgba(0, 136, 204, 0.3);
+  color: #0088cc;
+}
+
+.telegram:hover {
+  border-color: #0088cc;
+  box-shadow: 0 4px 12px rgba(0, 136, 204, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.instagram {
+  background: linear-gradient(135deg, rgba(228, 64, 95, 0.18), rgba(228, 64, 95, 0.08));
+  border-color: rgba(228, 64, 95, 0.3);
+  color: #e4405f;
+}
+
+.instagram:hover {
+  border-color: #e4405f;
+  box-shadow: 0 4px 12px rgba(228, 64, 95, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.tiktok {
+  background: linear-gradient(135deg, rgba(254, 44, 85, 0.18), rgba(254, 44, 85, 0.08));
+  border-color: rgba(254, 44, 85, 0.3);
+  color: #fe2c55;
+}
+
+.tiktok:hover {
+  border-color: #fe2c55;
+  box-shadow: 0 4px 12px rgba(254, 44, 85, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.github {
+  background: linear-gradient(135deg, rgba(110, 84, 148, 0.18), rgba(110, 84, 148, 0.08));
+  border-color: rgba(110, 84, 148, 0.3);
+  color: #6e5494;
+}
+
+.github:hover {
+  border-color: #6e5494;
+  box-shadow: 0 4px 12px rgba(110, 84, 148, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Active state */
+.socialLink:active {
+  transform: scale(0.97);
+}
+
+/* Light theme adjustments */
+:global([data-theme="light"]) .socialLink {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(12, 18, 33, 0.15);
+}
+
+:global([data-theme="light"]) .gmail {
+  background: linear-gradient(135deg, rgba(234, 67, 53, 0.12), rgba(234, 67, 53, 0.05));
+  border-color: rgba(234, 67, 53, 0.25);
+}
+
+:global([data-theme="light"]) .telegram {
+  background: linear-gradient(135deg, rgba(0, 136, 204, 0.12), rgba(0, 136, 204, 0.05));
+  border-color: rgba(0, 136, 204, 0.25);
+}
+
+:global([data-theme="light"]) .instagram {
+  background: linear-gradient(135deg, rgba(228, 64, 95, 0.12), rgba(228, 64, 95, 0.05));
+  border-color: rgba(228, 64, 95, 0.25);
+}
+
+:global([data-theme="light"]) .tiktok {
+  background: linear-gradient(135deg, rgba(254, 44, 85, 0.12), rgba(254, 44, 85, 0.05));
+  border-color: rgba(254, 44, 85, 0.25);
+}
+
+:global([data-theme="light"]) .github {
+  background: linear-gradient(135deg, rgba(110, 84, 148, 0.12), rgba(110, 84, 148, 0.05));
+  border-color: rgba(110, 84, 148, 0.25);
+}
+
+/* Focus visible for accessibility */
+.socialLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact {
+    padding: 80px 0;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .socialGrid {
+    gap: 12px;
+  }
+
+  .socialLink {
+    height: 38px;
+    padding: 0 20px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 60px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
+  .socialGrid {
+    gap: 10px;
+  }
+
+  .socialLink {
+    height: 36px;
+    padding: 0 18px;
+    font-size: 0.8125rem;
+  }
+}

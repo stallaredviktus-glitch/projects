@@ -1,0 +1,236 @@
+@import './variables.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text-0);
+  background: linear-gradient(140deg, var(--bg-0), var(--bg-1) 60%, var(--bg-2));
+  background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 400ms ease, color 200ms ease;
+  position: relative;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Hide cursor on all elements */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.32), transparent 52%),
+    radial-gradient(circle at 28% 70%, rgba(34, 211, 238, 0.26), transparent 56%),
+    radial-gradient(circle at 52% 30%, rgba(124, 58, 237, 0.26), transparent 50%),
+    radial-gradient(circle at 72% 18%, rgba(34, 211, 238, 0.28), transparent 48%),
+    radial-gradient(circle at 82% 55%, rgba(124, 58, 237, 0.22), transparent 56%),
+    radial-gradient(circle at 90% 82%, rgba(34, 211, 238, 0.24), transparent 58%);
+  filter: blur(14px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+  will-change: auto;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title span {
+  display: inline-block;
+  position: relative;
+}
+
+.section-title span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 0.8;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Theme transition */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 600ms ease, color 400ms ease, border-color 600ms ease, box-shadow 600ms ease !important;
+}
+
+/* Smooth theme transitioning - applied when switching themes */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              fill 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Slower transition when going to light theme */
+html.theme-transitioning[data-theme="light"],
+html.theme-transitioning[data-theme="light"] *,
+html.theme-transitioning[data-theme="light"] *::before,
+html.theme-transitioning[data-theme="light"] *::after {
+  transition: background-color 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+              color 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+              border-color 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+              box-shadow 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+              background 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+              fill 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+              stroke 0.8s cubic-bezier(0.25, 0.1, 0.25, 1),
+              opacity 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter 1s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 48px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 24px;
+  }
+
+  .section-title span::after {
+    height: 2px;
+    bottom: -8px;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 36px 0;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+}

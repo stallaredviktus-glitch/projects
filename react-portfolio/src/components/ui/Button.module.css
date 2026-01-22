@@ -1,0 +1,71 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 0.95rem;
+  overflow: hidden;
+  letter-spacing: 0.02em;
+  position: relative;
+  text-decoration: none;
+}
+
+.primary {
+  background: linear-gradient(130deg, var(--accent), var(--accent-2));
+  color: #0c1221;
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.3);
+  border: 0;
+  background-clip: padding-box;
+}
+
+.primary::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(124, 58, 237, 0.35);
+}
+
+.primary:hover::after {
+  opacity: 1;
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-0);
+}
+
+.secondary:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.secondary::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(130deg, rgba(124, 58, 237, 0.2), rgba(34, 211, 238, 0.12));
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.secondary:hover::before {
+  opacity: 1;
+}
